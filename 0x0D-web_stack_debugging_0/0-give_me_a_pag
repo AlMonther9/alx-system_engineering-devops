@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
 # Fix Apache to return a page containing Hello Holberton
+docker run -p 8080:80 -d -it holbertonschool/265-0
+docker exec -it <container_id> /bin/bash
+echo "Hello Holberton" > /var/www/html/index.html
+curl 0:8080
+
 echo "Hello Holberton" > /var/www/html/index.html
