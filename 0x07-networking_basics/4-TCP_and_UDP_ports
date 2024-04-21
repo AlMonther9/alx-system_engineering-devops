@@ -1,9 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# script that displays TCP and UDP listening ports
 
-# Display listening sockets
-netstat -tuln
-
-# Show the PID and name of the program to which each socket belongs
-echo "PID   Program"
-netstat -tuln | awk '/^tcp/ {print $4, $7}' | awk -F '[:/]+' '{print $5}' | xargs -n1 -IX bash -c 'echo -n X " "; ps -p X -o comm='
-
+netstat -l
