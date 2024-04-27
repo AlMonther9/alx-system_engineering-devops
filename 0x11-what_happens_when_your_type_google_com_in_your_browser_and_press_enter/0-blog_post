@@ -1,1 +1,30 @@
-https://gr00t.notion.site/What-Happens-846e145ce64f475f94f5a8bc713f171e
+TCP/IP
+Great, now our PC has now the IP address of Google. What now? Now we send the request, more exactly, our browser will do it using TCP/IP. We can describe TCP/IP as a family of protocols that allow a machine to connect to a network. TCP/IP comprehends a set of guides about how data should be formatted, directed, transmitted, routed, and received. The TCP part is responsible for ensuring that everything that you send and receive from the other is complete. i.e. no corrupted packages nor loss of data. the IP part is responsible for sending that data to the correct addressee, and back to you. Here I show you the package it’s been created, It is a capsule that we will send so that the other end can decapsulate and manage accordingly
+
+Firewall
+I can’t think of a more appropriate name for it. The firewall can be either a hardware device or software or even a network with the purpose of preventing unauthorized access to a PC (yours normally have one too) or network while allowing authorized communications. But how would someone manage to enter a network? well, computers have a lot of logical ports. 65000 to be accurate. And unless we restrict the entrance of data only to the essential ports, someone will manage to enter our networks. Firewalls take charge of that, closing the ports that may suppose a risk, even also restricting certain types of messages depending on the level of security we need.
+
+HTTPS/SSL
+Even with firewalls, we cannot ensure that no one will manage to stick his nose into your conversation with a website by getting somewhere in the middle to “sniff packages”, but what we can ensure is that he/she will not be able to hear your conversation.
+
+Remember being a kid and speaking the childish f-language? Ever remember speaking in code? HTTPS and SSL are something like that but on steroids. as this time it is not trough adding the f to every syllable but by generating complex primes that are impossible to decipher to their original if you try to reverse-engineering them, and are only decryptable if you have the appropriate pair of keys. a big, unpredictable, random number is used to generate a pair of keys for every connection. The green padlock and the https prefix on the URL address are the confirmation that your conversation with a website is secure and your data is being sent encrypted
+
+Load-balancer
+To avoid that a server collapses due to managing a high amount of requests, it is a good idea to have more than one of them with the same configuration and then putting a load balancer as the frontline. A load balancer handles requests and distributes them evenly among the available web servers.
+
+Webserver
+Remember our capsule package? Every web server handles the web-fragment of it, They are in charge of making unidirectional or bidirectional connections with you, the user in a synchronous or asynchronous way and generally, sending an appropriate response, you may see a white screen with a search bar, but a response could look something like this.
+
+Application server
+The web servers have decapsulated our packet and left us with the data part of it, so now we go to application servers. They will decapsulate the data part of our package.
+
+The application server is the part of the server that handles all application-related operations between the user and the website’s backend.it is usually a software application that manages all or at least the majority of the functions of the logic of the website, Look as they are taking our data as their parameters for their logic functions. This is where all the magic happens. This is where algorithms live and work, This is where programmatic functions… well, function. With your data. Now let’s move on to the farthest point of our journey.
+
+Database
+I think of the database as the furthest point a user request may reach before coming back to the user, we can define it as a structure that stores organized data. If a user’s interaction with the application involves sending and receiving data, a database will likely be present. Databases can be considered the long term memory of the internet and, in conjunction with ingenious software, the reason why the internet is the vast, second world is its today and not a poor pool of mindless, simple applications.
+
+It is because of databases, that you have a profile on Facebook and can see it every time you want to, because of them you can look for the products you want on Amazon and also the ones you’ve bought; and because of them that you can watch the videos if the category that you desire on Youtube. Databases are important because applications stored in application servers make queries to them in order to get the data you want. In your PC you can save any file wherever you want and you may have a clue of where you stored it. But what happens when the data you have to store is thousands and thousands of videos, files, images, etc. Imagine if data was just thrown into hard drives without making relations of who put it there, what kind of data it is. It would be lost or would take millions of years to find those pop songs you like to wear out.
+
+Now that we have successfully sent our package and reached the end our journey will continue to the other end, your end, with another package which is the server’s response.
+
+The diagram above shows the above-explained process graphically from your device, first to the DNS network and back, then with the IP address to the website network and back.
