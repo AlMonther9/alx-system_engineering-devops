@@ -1,3 +1,8 @@
+Include /etc/ssh/ssh_config.d/*.conf
+
+Host *
+#   ForwardAgent no
+#   ForwardX11 no
 #   ForwardX11Trusted yes
     PasswordAuthentication no
 #   HostbasedAuthentication no
@@ -28,3 +33,4 @@
     SendEnv LANG LC_*
     HashKnownHosts yes
     GSSAPIAuthentication yes
+                                                 
