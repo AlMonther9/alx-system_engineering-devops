@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-# Creates an RSA SSH key pair
-ssh-keygen -f school -b 4096 -N betty
+# Generating SSH key-pairs according to Task requirements
+
+ssh-keygen -t rsa -b 4096 -P betty -f school
