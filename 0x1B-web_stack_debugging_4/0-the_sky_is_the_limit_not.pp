@@ -1,19 +1,14 @@
-# This Puppet manifest optimizes Nginx to handle more concurrent requests
+# This manuscript increases the amount of traffic an Nginx server can handle
 
-exec { 'increase-worker-connections':
-  command => 'sed -i "s/worker_connections 768;/worker_connections 4096;/" /etc/nginx/nginx.conf',
-  path    => ['/bin', '/usr/bin'],
-  onlyif  => 'grep "worker_connections 768;" /etc/nginx/nginx.conf',
+# Increase the ULIMIT of the default file
+file { 'fix-for-nginx':
+  ensure  => 'file',
+  path    => '/etc/default/nginx',
+  content => inline_template('<%= File.read("/etc/default/nginx").gsub(/15/, "4096") %>'),
 }
 
-exec { 'increase-worker-processes':
-  command => 'sed -i "s/worker_processes 1;/worker_processes auto;/" /etc/nginx/nginx.conf',
-  path    => ['/bin', '/usr/bin'],
-  onlyif  => 'grep "worker_processes 1;" /etc/nginx/nginx.conf',
-}
-
-service { 'nginx':
-  ensure  => 'running',
-  enable  => true,
-  require => [ Exec['increase-worker-connections'], Exec['increase-worker-processes'] ],
+# Restart Nginx
+-> exec { 'nginx-restart':
+  command => 'nginx restart',
+  path    => '/etc/init.d/',
 }
